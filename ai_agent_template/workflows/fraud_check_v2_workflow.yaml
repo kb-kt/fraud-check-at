@@ -1,0 +1,18 @@
+workflow_id: fraud_check_v2
+version: 1.0.0
+steps:
+  - validate_contract
+  - load_fraud_context
+  - fetch_registered_documents
+  - extract_pdf_text_ocr_vlm
+  - analyze_exact_and_altered_duplicates
+  - compare_claim_and_document_fields
+  - analyze_insured_and_provider_patterns
+  - combine_signals_and_score
+  - enforce_human_review_invariants
+  - emit_evidence_response
+safety_invariants:
+  - fraud_suspected_implies_human_review
+  - critical_tool_failure_implies_human_review
+  - never_emit_payment_or_denial_decision
+  - never_fetch_arbitrary_document_url

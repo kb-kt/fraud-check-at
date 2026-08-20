@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fraud_check_v2_response.schema.json",
+  "title": "Fraud Check v2 Response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "claim_id", "status", "fraud_suspected", "fraud_reason_codes", "risk_score", "routing", "requires_human_review", "engine_version", "workflow_version", "findings", "evidence", "analysis_warnings", "tool_failures", "review_summary"],
+  "properties": {
+    "schema_version": {"const": "2.0.0"}, "request_id": {"type": "string"}, "claim_id": {"type": "string"},
+    "status": {"enum": ["completed", "failed"]}, "fraud_suspected": {"type": "boolean"},
+    "fraud_reason_codes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "risk_score": {"type": "integer", "minimum": 0, "maximum": 100},
+    "routing": {"enum": ["continue_claim_review", "human_review"]}, "requires_human_review": {"type": "boolean"},
+    "engine_version": {"type": "string"}, "workflow_version": {"type": "string"},
+    "findings": {"type": "array"}, "evidence": {"type": "array"}, "analysis_warnings": {"type": "array"}, "tool_failures": {"type": "array"}, "review_summary": {"type": "string"}
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fraud_check_v2_request.schema.json",
+  "title": "Fraud Check v2 Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "claim_id", "source_system", "analysis_mode", "claim", "insured_profile", "document_refs", "inline_context", "upstream_signals", "options"],
+  "properties": {
+    "schema_version": {"const": "2.0.0"},
+    "request_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{5,127}$"},
+    "claim_id": {"type": "string", "minLength": 1},
+    "source_system": {"enum": ["automated_claims_processing_template", "automated_claims_processing_mvp", "synthetic_test_harness"]},
+    "analysis_mode": {"enum": ["raw_evidence", "upstream_signal_assisted"]},
+    "claim": {"type": "object"},
+    "insured_profile": {"type": "object"},
+    "document_refs": {"type": "array", "items": {"type": "object", "required": ["document_id"], "properties": {"document_id": {"type": "string"}, "document_type": {"type": "string"}, "content_hash": {"type": "string"}, "mime_type": {"type": "string"}}}},
+    "inline_context": {"type": "object", "required": ["claim_history", "document_metadata", "historical_document_fingerprints"]},
+    "upstream_signals": {"type": "object"},
+    "options": {"type": "object", "properties": {"include_evidence": {"type": "boolean"}, "include_tool_trace": {"type": "boolean"}, "strict_schema": {"type": "boolean"}}}
+  }
+}

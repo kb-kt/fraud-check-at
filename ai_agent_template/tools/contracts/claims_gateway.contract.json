@@ -1,0 +1,11 @@
+{
+  "name": "claims_gateway",
+  "version": "1.0.0",
+  "operations": {
+    "get_fraud_context": "GET /internal/v1/fraud-context/claims/{claim_id}",
+    "list_documents": "GET /internal/v1/claims/{claim_id}/documents",
+    "get_document_content": "GET /internal/v1/documents/{document_id}/content"
+  },
+  "authentication": "Authorization: Bearer ${CLAIMS_INTERNAL_API_KEY}",
+  "security": ["registered document IDs only", "PDF MIME allowlist", "byte limit", "SHA-256 verification"]
+}

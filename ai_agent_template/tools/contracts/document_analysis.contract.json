@@ -1,0 +1,7 @@
+{
+  "name": "document_analysis",
+  "version": "1.0.0",
+  "pipeline": ["pdf_text", "ocr_provider", "vlm_provider"],
+  "outputs": ["fields", "text_fingerprint", "perceptual_hash", "confidence", "warnings"],
+  "compare_fields": ["claimed_amount", "provider_id", "receipt_id", "treatment_start_date", "treatment_end_date", "diagnosis_code", "treatment_code"]
+}

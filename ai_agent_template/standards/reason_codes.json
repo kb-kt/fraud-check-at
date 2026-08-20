@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "fraud_threshold": 50,
+  "codes": {
+    "DUPLICATE_RECEIPT_SUSPECTED": {"weight": 70, "category": "duplicate"},
+    "ALTERED_DUPLICATE_RECEIPT_SUSPECTED": {"weight": 65, "category": "duplicate"},
+    "FRAUDULENT_DOCUMENT_SUSPECTED": {"weight": 80, "category": "document"},
+    "DOCUMENT_AMOUNT_MISMATCH": {"weight": 70, "category": "document_mismatch"},
+    "DOCUMENT_DATE_MISMATCH": {"weight": 70, "category": "document_mismatch"},
+    "DOCUMENT_PROVIDER_MISMATCH": {"weight": 70, "category": "document_mismatch"},
+    "DOCUMENT_IDENTITY_MISMATCH": {"weight": 70, "category": "document_mismatch"},
+    "SAME_INSURED_PROVIDER_REPEAT_SUSPECTED": {"weight": 50, "category": "behavior"},
+    "PROVIDER_PATTERN_ANOMALY_SUSPECTED": {"weight": 60, "category": "provider"},
+    "MULTIPLE_FRAUD_SIGNALS": {"weight": 15, "category": "composite"},
+    "DOCUMENT_UNAVAILABLE": {"weight": 0, "category": "review_only"},
+    "DOCUMENT_EXTRACTION_INCOMPLETE": {"weight": 0, "category": "review_only"},
+    "CLAIMS_CONTEXT_INCOMPLETE": {"weight": 0, "category": "review_only"}
+  }
+}
